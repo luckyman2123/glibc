@@ -19,7 +19,21 @@
 #include <dirent.h>
 #undef alphasort
 #include <string.h>
+/*
+	comment by Clark
+	::   
+	c语言strcoll()函数应用实例根据环境变量LC_COLLATE来比较字符串。函数引入的头文件：#include <string.h>
+	定义strcoll()函数：int strcoll(const char *s1, const char *s2);
 
+	strcoll()函数介绍：strcoll()会依环境变量LC_COLLATE 所指定的文字排列次序来比较s1 和s2 字符串。
+
+	strcoll()函数返回值：若参数s1 和s2 字符串相同则返回0。s1 若大于s2 则返回大于0 的值，s1 若小于s2 则返回小于0 的值。
+
+	附加说明：若 LC_COLLATE 为”POSIX”或”C”，则strcoll()与strcmp()作用完全相同。
+
+	::
+	2021-4-9
+*/ 
 int
 alphasort64 (const struct dirent64 **a, const struct dirent64 **b)
 {

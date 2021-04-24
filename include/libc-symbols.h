@@ -143,7 +143,7 @@
    If weak aliases are not available, this defines a strong alias.  */
 # define weak_alias(name, aliasname) _weak_alias (name, aliasname)
 # define _weak_alias(name, aliasname) \
-  extern __typeof (name) aliasname __attribute__ ((weak, alias (#name)));
+  extern __typeof (name) aliasname __attribute__ ((weak, alias (#name)));// comment by Clark:: weak修饰符的含义是让weak弱类型的函数可以被其它同名函数覆盖（即不会发生冲突），如果没有其它同名函数，就使用该weak函数，类似于是默认函数  ::2021-4-24
 
 /* Same as WEAK_ALIAS, but mark symbol as hidden.  */
 # define weak_hidden_alias(name, aliasname) \
