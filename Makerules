@@ -393,6 +393,7 @@ ifneq ($(sysd-rules-sysdirs),$(config-sysdirs))
 sysd-rules-force = FORCE
 FORCE:
 endif
+# comment by Clark:: $(..): 根目录, $(common-objpfx):make的目录, build目录  ::2021-4-24
 $(common-objpfx)sysd-rules: $(..)scripts/sysd-rules.awk \
 			    $(common-objpfx)config.make $(..)Makerules \
 			    $(sysdep-makefiles) $(sysdep-makeconfigs) \

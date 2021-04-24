@@ -1093,6 +1093,7 @@ endif
 # Process the shlib-versions file, which tells us what shared library
 # version numbers to use when we install shared objects on this system.
 # We need to wait until $(subdirs) is complete.
+# comment by Clark:: gen-sorted.awk:gawk - f scripts/gen-sorted.awk  ::2021-4-24
 ifeq ($(sysd-sorted-done),t)
 -include $(common-objpfx)soversions.mk
 ifndef avoid-generated
@@ -1101,6 +1102,7 @@ $(common-objpfx)shlib-versions.v.i: \
 		   $(subdir-srcdirs:=/shlib-versions)) \
 	$(..)shlib-versions
 
+# comment by Clark:: 使用脚本中的soversions.awk来完成的  ::2021-4-24
 $(common-objpfx)soversions.i: $(..)scripts/soversions.awk \
 			      $(common-objpfx)shlib-versions.v
 	$(AWK) -f $^ > $@T
@@ -1182,7 +1184,7 @@ libdl = $(common-objpfx)dlfcn/libdl.a
 endif
 
 ifeq ($(build-shared),yes)
-libm = $(common-objpfx)math/libm.so$(libm.so-version)
+libm = $(common-objpfx)math/libm.so$(libm.so-version)	# comment by Clark:: -include $(common-objpfx)soversions.mk: build/soversions.mak  ::2021-4-24
 libmvec = $(common-objpfx)mathvec/libmvec.so$(libmvec.so-version)
 else
 libm = $(common-objpfx)math/libm.a

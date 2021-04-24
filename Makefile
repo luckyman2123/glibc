@@ -77,7 +77,7 @@ ifeq (yes,$(build-shared))
 headers += gnu/lib-names.h
 endif
 
-include Makerules
+include Makerules			# comment by Clark:: sysd-rules.awk执行  ::2021-4-24
 
 ifeq ($(build-programs),yes)
 others: $(addprefix $(objpfx),$(install-bin-script))
